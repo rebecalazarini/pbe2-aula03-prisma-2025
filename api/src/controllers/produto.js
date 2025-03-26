@@ -5,22 +5,22 @@ const create = async (req, res) => {
     const dados = req.body;
     dados.subTotal = dados.qtd * dados.preco;
     try {
-        const pedido = await prisma.pedido.create({
+        const produto = await prisma.produto.create({
             data: dados,
         });
-        res.status(201).json(pedido).end();
+        res.status(201).json(produto).end();
     } catch (e) {
         res.status(400).json(e).end();
     }
 }
 
 const read = async (req, res) => {
-    const pedidos = await prisma.pedido.findMany();
-    res.json(pedidos);
+    const produtos = await prisma.produtos.findMany();
+    res.json(produtos);
 }
 
 const readOne = async (req, res) => {
-    const pedidos = await prisma.pedido.findMany({
+    const produtos = await prisma.produtos.findMany({
         where:{
             id: Number(req.params.id)
         },
@@ -28,18 +28,18 @@ const readOne = async (req, res) => {
             cliente: true
         }
     });
-    res.json(pedidos);
+    res.json(produtos);
 }
 
 const update = async (req, res) => {
     try {
-        const pedido = await prisma.pedido.update({
+        const produto = await prisma.produto.update({
             data: req.body,
             where: {
                 id: Number(req.params.id)
             }
         });
-        res.status(202).json(pedido).end();
+        res.status(202).json(produto).end();
     } catch (e) {
         res.status(400).json(e).end();
     }
@@ -47,12 +47,12 @@ const update = async (req, res) => {
 
 const remove = async (req, res) => {
     try {
-        const pedido = await prisma.pedido.delete({
+        const produto = await prisma.produto.delete({
             where: {
                 id: Number(req.params.id)
             }
         });
-        res.status(204).json(pedido).end();
+        res.status(204).json(produto).end();
     } catch (e) {
         res.status(400).json(e).end();
     }

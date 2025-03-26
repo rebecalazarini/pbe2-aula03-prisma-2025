@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snoopy PetShop</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Snoopy PetShop</h1>
+        
+        <button onclick="cadastro.classList.remove('oculto')">Novo Cliente</button>
+        <button onclick="cadastrop.classList.remove('oculto')">Novo Produto</button>
+    </header>
+    <main>
+    </main>
+    <footer>
+        <h2>By rebecalazarini || 26/03/2025</h2>
+    </footer>
+    <div id="cadastro"  class="modal oculto">
+        <div class="janela">
+            <div>
+                <h3>Cadastro Cliente</h3>
+                <button onclick="window.location.reload()">X</button>
+            </div>
+            <form>
+                <input type="text" name="cliente" placeholder="Nome do Cliente" required>
+                <input type="number" name="cpf" placeholder="Cpf" required>
+                <input type="number" name="telefone" placeholder="Telefone" required>
+               
+                <button type="submit">Cadastrar</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="cadastrop"  class="modal oculto">
+        <div class="janela">
+            <div>
+                <h3>Cadastro Produto</h3>
+                <button onclick="window.location.reload()">X</button>
+            </div>
+            <form>
+                <input type="text" name="produto" placeholder="Nome do Produto" required>
+                <input type="text" name="descricao" placeholder="Descrição" required>
+                <input type="number" name="qtd" placeholder="Quantidade" required>
+                <input type="number" step="0.01" name="preco" placeholder="Preço" required>
+                <input type="number" step="0.01" name="subTotal" placeholder="subTotal" required>
+                <button type="submit">Cadastrar</button>
+            </form>
+        </div>
+    </div>
+    
+    <div id="detalhes" class="modal oculto">
+        <div class="janela">
+            <div>
+                <h3>Detalhes do Produto</h3>
+                <button onclick="document.getElementById('detalhes').classList.add('oculto')">X</button>
+            </div>
+            <div id="conteudo">
+            </div>
+        </div>
+    </div>
+    
+    
+
+</body>
+<script src="script.js"></script>
+</html>
+<!-- Semântica do html => header + main + footer-->
